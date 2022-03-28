@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="login.css">
+   </head>
+  <script>
+    function validationForm(formAttr)
+    {
+      console.log(formAttr)
+      let flag = false;
+      const aadharField = ``+document.getElementById("aadhar-number").value;
+      if(aadharField.length == 12)
+      {
+        flag = true;
+      }
+      else {
+        alert("Aadhar length invalid.");
+        formAttr.reset();
+        history.go(0); 
+      }
+      if(flag == false)
+      {
+        window.location.reload();
+      }
+      if(flag == true)
+      {
+        window.location.href = "./voting.html"
+        return;
+      }
+    }
+  </script>
+<body>
+  <!--NAV BAR-->
+    <nav>
+        <p class="logo">E-Voting</p>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="Registration.html">REGISTER</a></li>
+                <li><a href="adminlogin.html">ADMIN LOGIN</a></li>
+            </ul>
+    </nav>
+  <div class="container">
+    <div class="title">Login Details</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Aadhar Number</span>
+            <input type="text" id="aadhar-number" placeholder="Enter your Aadhar number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required>
+          </div> 
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" required>
+          </div>
+        </div>
+        </div>
+        <div class="button">
+          <input type="button" value="Login" onclick="validationForm(this.form)">
+        </div>
+      </form>
+    </div> 
+  </div>
+
+</body>
+</html>
